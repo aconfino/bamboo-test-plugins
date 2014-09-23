@@ -6,7 +6,7 @@
 
     <modelVersion>4.0.0</modelVersion>
     <groupId>helloworld</groupId>
-    <artifactId>helloworld</artifactId>
+    <artifactId>user-input-example</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <organization>
@@ -15,12 +15,14 @@
     </organization>
 
     <name>helloworld</name>
-    <description>This is the helloworld:helloworld plugin for Atlassian Bamboo.</description>
+    <description>This is the helloworld:user-input-example plugin for Atlassian Bamboo.</description>
     <packaging>atlassian-plugin</packaging>
 
-    <properties>
-        <bamboo.version>3.1</bamboo.version>
-        <bamboo.data.version>2.6.1</bamboo.data.version>
+  <properties>
+        <bamboo.version>5.6.2</bamboo.version>
+        <bamboo.data.version>5.6.0</bamboo.data.version>
+        <amps.version>5.0.4</amps.version>
+        <plugin.testrunner.version>1.2.0</plugin.testrunner.version>
     </properties>
 
     <dependencies>
@@ -34,8 +36,27 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.6</version>
+            <version>4.10</version>
             <scope>test</scope>
+        </dependency>
+
+        <!-- WIRED TEST RUNNER DEPENDENCIES -->
+        <dependency>
+            <groupId>com.atlassian.plugins</groupId>
+            <artifactId>atlassian-plugins-osgi-testrunner</artifactId>
+            <version>${plugin.testrunner.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>javax.ws.rs</groupId>
+            <artifactId>jsr311-api</artifactId>
+            <version>1.1.1</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.2.2-atlassian-1</version>
         </dependency>
     </dependencies>
 
@@ -44,39 +65,12 @@
             <plugin>
                 <groupId>com.atlassian.maven.plugins</groupId>
                 <artifactId>maven-bamboo-plugin</artifactId>
-                <version>3.3.2</version>
+                <version>${amps.version}</version>
                 <extensions>true</extensions>
                 <configuration>
                     <productVersion>${bamboo.version}</productVersion>
                     <productDataVersion>${bamboo.data.version}</productDataVersion>
                 </configuration>
-            </plugin>
-	          <!--
-              If you have dependencies that ship with your plugin you should use the shade plugin to include them in the final jar
-              Uncomment the section below and add any jars you want to include by adding <include>groupId:artifactId</include> between the artifactSet elements.
-              See http://atlss.in/mhgZm6 for more information
-            -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-shade-plugin</artifactId>
-		            <version>1.4</version>
-                <executions>
-                   <execution>
-                     <phase>package</phase>
-                     <goals>
-                       <goal>shade</goal>
-                     </goals>
-                     <!--
-                     <configuration>
-                       <artifactSet>
-                          <includes>
-                            <include>com.mygroupid:my-artifact-id</include>
-                          </includes>
-                        </artifactSet>
-                      </configuration>
-                      -->
-                   </execution>
-                </executions>
             </plugin>
           
             <plugin>

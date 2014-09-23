@@ -14,8 +14,8 @@
     <resource type="i18n" name="helloworld language" location="english"/>
 
     <!-- defines an example task -->
-    <taskType name="helloworld" class="helloworld.ExampleTask" key="test">
-      <description>A simple Hello World Task</description>
+    <taskType name="Hello User Input" class="helloworld.ExampleTask" key="test">
+      <description>A simple task that demonstrates user input</description>
       <!-- Categories available in 3.1: "builder", "test" and "deployment"
       <category name=""/>
       -->

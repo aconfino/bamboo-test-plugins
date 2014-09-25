@@ -23,5 +23,7 @@
       <configuration class="helloworld.GitLogTaskConfigurator"/>
       <resource type="freemarker" name="edit" location="editExampleTask.ftl"/>
       <resource type="freemarker" name="view" location="viewExampleTask.ftl"/>
+      <help link="helloworld.task.help.link" title="helloworld.task.help.title" />
+      <resource type="download" name="icon" location="icon.jpg"/>
     </taskType>
 </atlassian-plugin>

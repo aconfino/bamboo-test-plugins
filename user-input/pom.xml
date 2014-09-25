@@ -13,7 +13,7 @@
 		<url>http://www.example.com/</url>
 	</organization>
 
-	<name>helloworld</name>
+	<name>Git Log Example</name>
 	<description>This is the helloworld:git-log-example plugin for Atlassian Bamboo.</description>
 	<packaging>atlassian-plugin</packaging>
 

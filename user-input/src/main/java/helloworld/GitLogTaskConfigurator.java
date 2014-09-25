@@ -46,13 +46,15 @@ public class GitLogTaskConfigurator extends AbstractTaskConfigurator{
     public void validate(@NotNull final ActionParametersMap params, @NotNull final ErrorCollection errorCollection){
         super.validate(params, errorCollection);
         final String projectPath = params.getString("path");
-        if (validProjectPath(projectPath)){
+        if (!validGitProject(projectPath)){
             errorCollection.addError("path", textProvider.getText("helloworld.path.error"));
         }
     }
     
-    public static boolean validProjectPath(String projectPath){
-    	if (StringUtils.isEmpty(projectPath) || (!(new File(projectPath).exists()))){
+    public static boolean validGitProject(String projectPath){
+        if (projectPath == null){
+        	return false;
+    	} else if (!new File(projectPath).exists()){
     		return false;
     	}
     	return true;

@@ -8,9 +8,9 @@ public class GitLogTaskConfiguratorTest {
 	
 	@Test
 	public void validProjectPathTest(){
-		assertFalse(GitLogTaskConfigurator.validProjectPath(null));
-		assertFalse(GitLogTaskConfigurator.validProjectPath("c:/does/not/exist"));
-		assertTrue(GitLogTaskConfigurator.validProjectPath("c:/workspace/bamboo-task/user-input"));
+		assertFalse(GitLogTaskConfigurator.validGitProject(null));
+		assertFalse(GitLogTaskConfigurator.validGitProject("c:/does/not/exist"));
+		assertTrue(GitLogTaskConfigurator.validGitProject("c:/workspace/bamboo-task/user-input"));
 	}
 
 }

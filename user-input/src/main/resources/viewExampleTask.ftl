@@ -1,1 +1,1 @@
-[@ww.label labelKey="helloworld.say" name="say"/]
+[@ww.label labelKey="helloworld.path" name="path"/]

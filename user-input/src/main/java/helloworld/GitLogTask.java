@@ -8,7 +8,7 @@ import com.atlassian.bamboo.task.TaskResultBuilder;
 import com.atlassian.bamboo.task.TaskType;
 import org.jetbrains.annotations.NotNull;
 
-public class ExampleTask implements TaskType
+public class GitLogTask implements TaskType
 {
     @NotNull
     @java.lang.Override
@@ -16,7 +16,7 @@ public class ExampleTask implements TaskType
     {
         final BuildLogger buildLogger = taskContext.getBuildLogger();
 
-        final String say = taskContext.getConfigurationMap().get("say");
+        final String say = taskContext.getConfigurationMap().get("path");
 
         buildLogger.addBuildLogEntry(say);
 
